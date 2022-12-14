@@ -10,6 +10,7 @@ namespace CyberServerApp.Models
         public int Id { get; set; }
         
         [Required(ErrorMessage = "username is required")]
+        //[RegularExpression(@"^[^\\/:*;\.\)\(]+$", ErrorMessage = "The characters ':', '.' ';', '*', '/' and '\' are not allowed")]
         [StringLength(maximumLength:20, MinimumLength = 3)]
         public string Username { get; set; }
 
@@ -17,8 +18,12 @@ namespace CyberServerApp.Models
         [StringLength(maximumLength: 50, MinimumLength = 3)]
         public string Email { get; set; }
 
-        [MaxLength(10)]
-        public int? Phone { get; set; }
+        [StringLength(maximumLength: 10, MinimumLength = 10)]
+        public string? Phone { get; set; }
+
+        [Required]
+        [StringLength(maximumLength: 10, MinimumLength = 10)]
+        public string? Password { get; set; }
 
     }
 }
