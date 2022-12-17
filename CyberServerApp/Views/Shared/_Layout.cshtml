@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using CyberServerApp.Models
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<CyberServerAppUser> SignInManager
+@inject UserManager<CyberServerAppUser> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -24,6 +30,14 @@
                         </li>                   
                     </ul>
                     <partial name="_LoginPartial"/>
+                   @* @if (SignInManager.IsSignedIn(User))
+                    {
+                        <ul>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">TestAdmin</a>
+                            </li>
+                        </ul>
+                    }*@
                 </div>
             </div>
         </nav>

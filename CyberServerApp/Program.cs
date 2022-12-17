@@ -14,7 +14,9 @@ builder.Services.AddDbContext<CyberServerAppContext>(options =>
 
 builder.Services.AddDefaultIdentity<CyberServerAppUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<CyberServerAppContext>();
+    .AddEntityFrameworkStores<CyberServerAppContext>()
+    .AddDefaultTokenProviders()
+    .AddDefaultUI();
 
 var app = builder.Build();
 
@@ -30,7 +32,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseAuthentication();;
+app.UseAuthentication();
 
 app.UseAuthorization();
 app.MapRazorPages();
