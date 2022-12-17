@@ -4,3 +4,4 @@ global using Microsoft.EntityFrameworkCore;
 global using CyberServerApp.Models;
 global using CyberServerApp.Data;
 global using CyberServerApp.Areas.Identity.Data;
+global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
