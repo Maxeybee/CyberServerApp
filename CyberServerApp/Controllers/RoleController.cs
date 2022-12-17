@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CyberServerApp.Controllers
 {
+    [Authorize]
     public class RoleController : Controller
     {
         private RoleManager<IdentityRole> _roleManager;
@@ -13,6 +15,8 @@ namespace CyberServerApp.Controllers
             // CS0029 
             _roleManager = roleManager;
         }
+
+        //[Authorize(Roles = "Admin")]
         // GET: RoleController
         public ActionResult Index()
         {
