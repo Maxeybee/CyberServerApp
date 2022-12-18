@@ -25,13 +25,13 @@ namespace CyberServerApp.Controllers
             return View(roles);
         }
         [HttpGet]
-        public ActionResult CreateRole()
+        public ActionResult Create()
         {
             return View(new IdentityRole());
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateRole(IdentityRole role)
+        public async Task<IActionResult> Create(IdentityRole role)
         {
             await _roleManager.CreateAsync(role);
             return View();

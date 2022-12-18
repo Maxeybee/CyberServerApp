@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace CyberServerApp.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -13,7 +13,7 @@ namespace CyberServerApp.Controllers
             _logger = logger;
         }
 
-        //[AllowAnonymous]
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
