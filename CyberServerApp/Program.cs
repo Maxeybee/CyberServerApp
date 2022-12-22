@@ -12,7 +12,7 @@ builder.Services.AddDbContext<CyberServerAppContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
 
-builder.Services.AddDefaultIdentity<CyberServerAppUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<CyberServerAppUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<CyberServerAppContext>()
     .AddDefaultTokenProviders()
@@ -37,8 +37,8 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapRazorPages();
 
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
 app.Run();
