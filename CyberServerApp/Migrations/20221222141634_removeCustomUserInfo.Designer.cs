@@ -3,6 +3,7 @@ using System;
 using CyberServerApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CyberServerApp.Migrations
 {
     [DbContext(typeof(CyberServerAppContext))]
-    partial class CyberServerAppContextModelSnapshot : ModelSnapshot
+    [Migration("20221222141634_removeCustomUserInfo")]
+    partial class removeCustomUserInfo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
