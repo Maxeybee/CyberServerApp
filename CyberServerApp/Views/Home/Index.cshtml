@@ -1,19 +1,32 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@using CyberServerApp.Models
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<CyberServerAppUser> SignInManager
+@inject UserManager<CyberServerAppUser> UserManager
 
-<div id="mainForm">
-    <h1 class="display-4">Please Connect</h1>
-    <form>
-        <div class="form-group col-xs-4">
-            <label for="fName">Username</label><br>
-            <input type="text" class="form-control-lg" id="fName" name="fName"><br>
-        </div>
-        <div class="form-group col-xs-4">
-            <label for="fPassword">Password</label><br>
-            <input type="password" class="form-control-lg" id="fPassword" name="fPassword">
-        </div>
-        <br />
-        <button class="btn btn-primary" type="submit">Submit</button>
-    </form>
-</div>
+@if (!SignInManager.IsSignedIn(User))
+{
+    <div id="mainForm">
+        <h1 class="display-4">Please Connect</h1>
+        <form>
+            <div class="form-group col-xs-4">
+                <label for="fName">Username</label><br>
+                <input type="text" class="form-control-lg" id="fName" name="fName"><br>
+            </div>
+            <div class="form-group col-xs-4">
+                <label for="fPassword">Password</label><br>
+                <input type="password" class="form-control-lg" id="fPassword" name="fPassword">
+            </div>
+            <br />
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+}
+else
+{
+    <h1></h1>
+
+}
+
